@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Card</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --card-bg: #ffffff;
+      --text: #222;
+      --accent: #2563eb;
+    }
+  body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+article {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+header h2 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+nav a:focus {
+  outline: 2px solid var(--accent);
+}
+
+section ul {
+  padding-left: 20px;
+}
+
+.time {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+@media (min-width: 600px) {
+  article {
+    flex-direction: row;
+  }
+
+  figure {
+    flex: 1;
+  }
+
+  .content {
+    flex: 2;
+  }
+}
+
+  </style>
+</head>
+<body><article data-testid="test-profile-card">  <figure>
+    <img src="100062399.png" alt="Profile photo of user" data-testid="test-user-avatar" />
+  </figure>  <div class="content"><header>
+  <h2 data-testid="test-user-name">Kingsley John-holt</h2>
+</header>
+
+<p data-testid="test-user-bio">
+  A passionate student interested in technology, business, and building impactful digital solutions.
+</p>
+
+<p class="time" data-testid="test-user-time" aria-live="polite"></p>
+
+<nav data-testid="test-user-social-links" aria-label="Social links">
+  <ul>
+    <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-twitter">Twitter</a></li>
+    <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-github">GitHub</a></li>
+    <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-linkedin">LinkedIn</a></li>
+  </ul>
+</nav>
+
+<section>
+  <h3>Hobbies</h3>
+  <ul data-testid="test-user-hobbies">
+    <li>Coding</li>
+    <li>Reading</li>
+    <li>Gaming</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Dislikes</h3>
+  <ul data-testid="test-user-dislikes">
+    <li>Procrastination</li>
+    <li>Noise</li>
+    <li>Unreliable internet</li>
+  </ul>
+</section>
+
+  </div>
+</article>
+  <script>
+  function updateTime() {
+    const timeElement = document.querySelector('[data-testid="test-user-time"]');
+    timeElement.textContent = Date.now();
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>
